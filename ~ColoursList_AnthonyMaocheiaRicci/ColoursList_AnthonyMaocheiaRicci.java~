@@ -1,0 +1,39 @@
+// anthony maocheia-ricci
+// ArrayList Quiz Assignment
+
+//importing packages
+import java.util.*;
+import java.io.*
+  
+  public class ColoursList_AnthonyMaocheiaRicci{
+  public static void main( String[] args ){
+    //declaring and initializing scanner from file
+    Scanner file = new Scanner(new File("DATA_ColoursList.txt"));
+    
+    //declaring and initializing ArrayList of Strings
+    ArrayList<String> colours = new ArrayList<String>();
+    
+    //adding all colours into an ArrayList
+    while(file.hasNext){
+      colours.add(file.next());
+    }// close while
+    
+    //removing the 2nd colour
+    colours.remove(1);
+    
+    //Sorting and displaying in a single line
+    Collections.sort(colours);
+    for(int j = 0, j < colours.size; j++){
+      System.out.print(colours.get(j) + " ");
+    }// close for
+    System.out.println("");
+    
+    //displaying a message if the list contains yellow
+    if(colours.contains("yellow")){
+      System.out.println("The ArrayList \"colours\" contains the String \"yellow\".");
+    }
+    
+    //
+    
+  } // close main
+} // close class 
