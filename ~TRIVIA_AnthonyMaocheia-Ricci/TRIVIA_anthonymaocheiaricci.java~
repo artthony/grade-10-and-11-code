@@ -1,0 +1,54 @@
+//anthony maocheia-ricci
+//arraylist trivia
+
+//importing packages
+import java.util.*;
+import java.io.*;
+
+public class TRIVIA_anthonymaocheiaricci
+{
+  public static void main(String[] args) throws Exception
+  {
+    //inputting text files and getting a keyboard input scanner
+    Scanner q = new Scanner(new File("DATA_Questions.txt"));
+    Scanner a = new Scanner(new File("DATA_Answers.txt"));
+    Scanner input = new Scanner( System.in );
+    
+    //declaring + initializing variables
+    int count = 1;
+    String inputted = "";
+    
+    //setting up arraylists
+    ArrayList<String> questions = new ArrayList<String>();
+    ArrayList<String> answers = new ArrayList<String>();
+    
+    //inputting questions + answers into arraylists
+    while(q.hasNext()){
+      questions.add(q.nextLine());
+    }
+    while(a.hasNext()){
+      answers.add(a.nextLine());
+    }
+    
+    
+    //for(int j = 0; j < questions.size(); j++){
+      int r = (int)(Math.random()*questions.size()); /* try to make this change for .size */
+      //asking question
+      while(!inputted.equalsIgnoreCase(answers.get(r))){
+        System.out.println(questions.get(r));
+        inputted = input.nextLine();
+        //answers wrong
+        if(!answers.get(r).equalsIgnoreCase(inputted)){
+          System.out.println("Wrong!, please try again.");
+          count++;
+        }
+        //answers right
+        else {
+          System.out.println("Correct! The answer was \"" + answers.get(r) + "\". You guessed " + count + " times.\n");
+          break;
+        }
+        
+      //}
+    }
+  }//close main
+}//close class
